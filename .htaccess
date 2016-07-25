@@ -1,0 +1,2 @@
+RewriteEngine on 
+RewriteRule ^(.*)\.view $1\.php 
