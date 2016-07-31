@@ -1,8 +1,12 @@
 <?php
 	class librivox{
 		
-		function printHead(){
-			print '<subsonic-response xmlns="http://subsonic.org/restapi" status="ok" version="1.14.0" librivox="'.$this->updateString().'">';
+		function printHead($json = false){
+			if($json){
+				print '{"subsonic-response" : {"status" : "ok", "version" : "1.14.0", "booksonic" : "'.$this->updateString().'", emulator="Librivox"}}';
+			}else{
+				print '<subsonic-response xmlns="http://subsonic.org/restapi" status="ok" version="1.14.0" booksonic="'.$this->updateString().'" emulator="Librivox">';
+			}
 		}
 		
 		function getBook($id){
